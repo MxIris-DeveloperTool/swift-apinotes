@@ -8,7 +8,7 @@ public class ObjCContext: CommonType {
     @CodedAt("Properties")
     var properties: [ObjCProperty]?
 
-    init(
+    public init(
         name: String,
         swiftName: String? = nil,
         isSwiftPrivate: Bool? = nil,
@@ -32,7 +32,51 @@ public class ObjCContext: CommonType {
 }
 
 @Codable
-public final class ObjCClass: ObjCContext {}
+public final class ObjCClass: ObjCContext {
+    public override init(
+        name: String,
+        swiftName: String? = nil,
+        isSwiftPrivate: Bool? = nil,
+        availability: Availability? = nil,
+        swiftBridge: String? = nil,
+        errorDomain: String? = nil,
+        methods: [ObjCMethod]? = nil,
+        properties: [ObjCProperty]? = nil
+    ) {
+        super.init(
+            name: name,
+            swiftName: swiftName,
+            isSwiftPrivate: isSwiftPrivate,
+            availability: availability,
+            swiftBridge: swiftBridge,
+            errorDomain: errorDomain,
+            methods: methods,
+            properties: properties
+        )
+    }
+}
 
 @Codable
-public final class ObjCProtocol: ObjCContext {}
+public final class ObjCProtocol: ObjCContext {
+    public override init(
+        name: String,
+        swiftName: String? = nil,
+        isSwiftPrivate: Bool? = nil,
+        availability: Availability? = nil,
+        swiftBridge: String? = nil,
+        errorDomain: String? = nil,
+        methods: [ObjCMethod]? = nil,
+        properties: [ObjCProperty]? = nil
+    ) {
+        super.init(
+            name: name,
+            swiftName: swiftName,
+            isSwiftPrivate: isSwiftPrivate,
+            availability: availability,
+            swiftBridge: swiftBridge,
+            errorDomain: errorDomain,
+            methods: methods,
+            properties: properties
+        )
+    }
+}
